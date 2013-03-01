@@ -1,6 +1,7 @@
 package edu.ufl.brainless;
 
 import android.graphics.Bitmap;
+import android.util.Log;
 
 public class Enemy extends Actor {
 	public int health; //health of enemy ranges from 0 to 100
@@ -22,12 +23,16 @@ public class Enemy extends Actor {
 		// TODO Auto-generated constructor stub
 	}
 	
-	/*public void update(Vector2 player){
+	public void update(Vector2 player){
+		Log.d(TAG, "enemy position "+position.X+" "+position.Y);
+		this.direction.X=player.X-this.position.X;
+		this.direction.Y=player.Y-this.position.Y;
+		direction.Normalize();
+		this.angle = (float)(Math.atan2(direction.Y, direction.X) * 180 / Math.PI);
+		
 		super.update();
-		this.direction.X=this.position.X-player.X;
-		this.direction.Y=this.position.Y-player.Y;
 	}
-*/
+
 	// getters and setters
 	public int getHealth(){
 		return health;
